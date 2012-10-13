@@ -1,0 +1,27 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from BeautifulSoup import BeautifulSoup
+import sys, urllib, re, pdb
+
+def add_new_line(obj):
+    return '\n' + obj.group()
+
+if len(sys.argv) != 2:
+    print('usage: %s <word>' % sys.argv[0])
+else:
+    word = re.sub(' ', '_', sys.argv[1]) #enable translate a sentence
+    html = urllib.urlopen('http://www.iciba.com/%s' % word).read().decode('utf8')
+    soup = BeautifulSoup(html)
+    if u'对不起，词库中没有您查询的单词' in html:
+        print('Sorry, cannot translate the word(s)')
+    else:
+        dict = [x for x in soup.findAll('div')\
+                if (u'class', u'collins_content') in x.attrs] #try the Collins Dict
+        if not dict: #if no match in Collins, try the machine translation
+            dict = [x for x in soup.findAll('div')\
+                    if (u'class', u'group_pos') in x.attrs]
+        result = dict[0].getText(' ') #only show the first match, which seems best
+        result = re.sub('&nbsp;', ' ', result) #replace the HTML space symbol
+        result = re.sub('[\s]{4,}', '\n', result) #remove redundent spaces
+        result = re.sub('\d+\. ', add_new_line, result) #highlight the groups
+        print(result.strip())

@@ -14,7 +14,7 @@ Example:
 
 English -> Chinese
 
-    dict hello
+    $ dict hello
        
     1.  CONVENTION   惯用语
     哈罗;你好 You say ' Hello ' to someone when you meet them. ;
@@ -37,9 +37,12 @@ English -> Chinese
     it?'...   她看到一个系办公室的门开着。“喂！请问，这是法语系，对吗？”
     Very softly, she called out: 'Hallo? Who's there?'   她轻声细气喊道：“喂？有人吗？”'
 
+    $ dict "this is mike, i come from america"
+    这是麦克，我从美国来
+
 Chinese -> English
 
-    dict 我喜欢你
+    $ dict 我喜欢你
     1. I Like You
 
     41. Good For You 为你好  
@@ -59,6 +62,9 @@ Chinese -> English
     4. GET READY
     GET READY 加油哦   GET READY 我喜欢你   READY GO！握紧手
     http://zhidao.baidu.com/question/63113515.html - 基于9个网页
+
+    $ dict "这个工具很小巧，也挺好用的"
+    This tool is very small, and very good use
 
 BashCiba is based on python so you will need to have Python installed on your machine.
 
