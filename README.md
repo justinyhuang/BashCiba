@@ -66,6 +66,6 @@ Chinese -> English
     $ dict "这个工具很小巧，也挺好用的"
     This tool is very small, and very good use
 
-BashCiba is based on python so you will need to have Python installed on your machine.
+BashCiba is based on python so you will need to have Python(2.7 and above) installed on your machine.
 
 Enjoy =)
