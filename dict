@@ -15,9 +15,6 @@ else:
     if u'对不起，词库中没有您查询的单词' in html:
         print('Sorry, cannot translate the word(s)')
     else:
-        '''for x in soup.findAll('ul'):
-            #if  x.attrs == u'base-list switch_part' :
-            print x.attrs '''
         dict = [x for x in soup.findAll('ul')\
                 if (u'class', u'base-list switch_part') in x.attrs] #try the Collins Dict
         if not dict: #if no match in Collins, try the machine translation
